@@ -28,8 +28,8 @@ function initializeContext(context) {
     r.setPrompt(`${chalk.green(topic)}> `)
   }
 
-  context.send = data => {
-    push(topic, data, uuid())
+  context.send = (data, key) => {
+    push(topic, data, key ? key : uuid())
   }
 
   if (process.argv.includes("--topics"))
