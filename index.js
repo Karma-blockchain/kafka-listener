@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 
-const 
+const
   repl = require('repl'),
   uuid = require('uuid/v4'),
   chalk = require('chalk'),
@@ -16,13 +16,13 @@ function initializeContext(context) {
       ? process.argv[process.argv.indexOf("--host") + 1]
       : "localhost:9092";
 
-  init({connectionString: host})
+  init({ connectionString: host })
 
   //context.init = init
-  context.push = (...args) => {push(...args)}
+  context.push = (...args) => { push(...args) }
   context.fetch = fetch
-  context.subscribe = (...args) => {subscribe(...args)}
-  
+  context.subscribe = (...args) => { subscribe(...args) }
+
   context.topic = _topic => {
     topic = _topic
     r.setPrompt(`${chalk.green(topic)}> `)
@@ -30,6 +30,10 @@ function initializeContext(context) {
 
   context.send = (data, key) => {
     push(topic, data, key ? key : uuid())
+  }
+
+  context.action = (action, data) => {
+    context.send({ action, data })
   }
 
   if (process.argv.includes("--topics"))

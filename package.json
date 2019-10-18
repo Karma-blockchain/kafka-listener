@@ -1,13 +1,20 @@
 {
   "name": "kafka-listener",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": "git@github.com:Karma-blockchain/kafka-listener.git",
   "author": "Nikolay Nozdrin-Plotnitsky <nozdrin.plotnitsky@karma.red>",
   "license": "MIT",
+  "scripts": {
+    "build": "pkg ."
+  },
+  "bin": "index.js",
   "dependencies": {
     "@karmared/kafka-transport": "^0.0.2",
     "chalk": "^2.4.1",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.0"
   }
 }
