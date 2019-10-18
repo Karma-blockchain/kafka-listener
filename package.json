@@ -9,6 +9,9 @@
     "build": "pkg ."
   },
   "bin": "index.js",
+  "pkg": {
+    "scripts": "node_modules/no-kafka/**/*.js"
+  },
   "dependencies": {
     "@karmared/kafka-transport": "^0.0.2",
     "chalk": "^2.4.1",
